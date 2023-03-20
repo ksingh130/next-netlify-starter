@@ -1,23 +1,36 @@
-import Head from 'next/head'
-import Header from '@components/Header'
-import Footer from '@components/Footer'
-
-export default function Home() {
-  return (
-    <div className="container">
-      <Head>
-        <title>Next.js Starter!</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main>
-        <Header title="Welcome to my app!" />
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
-      </main>
-
-      <Footer />
-    </div>
-  )
-}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Page</title>
+    <script>
+      function validate() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        
+        if (username === "" || password === "") {
+          alert("Please enter both username and password.");
+          return false;
+        }
+        else if (username !== "admin" || password !== "password123") {
+          alert("Invalid login credentials. Please try again.");
+          return false;
+        }
+        else {
+          return true;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Login Page</h1>
+    <form onsubmit="return validate()" method="post">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username"><br><br>
+      
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password"><br><br>
+      
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>
